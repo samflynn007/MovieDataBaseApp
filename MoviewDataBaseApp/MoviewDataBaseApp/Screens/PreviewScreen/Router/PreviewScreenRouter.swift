@@ -16,8 +16,6 @@ protocol IPreviewScreenDataPassing {
 }
 
 final class PreviewScreenViewRouter: IPreviewScreenViewRoutingLogic, IPreviewScreenDataPassing {
-   
-    
 
     // MARK: - Variables
     weak var viewController: PreviewViewController?

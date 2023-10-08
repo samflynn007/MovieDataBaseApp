@@ -18,7 +18,6 @@ protocol IPreviewScreenViewControllerOutput {
 class PreviewViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
     var movieDetails: [MovieDetails] = []
     var output: IPreviewScreenViewControllerOutput?
     var router: (IPreviewScreenViewRoutingLogic & IPreviewScreenDataPassing)?
@@ -30,10 +29,6 @@ class PreviewViewController: UIViewController {
         PreviewScreenConfigurator.configureMoviesView(viewController: self)
          
     }
-    
-
-    
-
 }
 extension PreviewViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

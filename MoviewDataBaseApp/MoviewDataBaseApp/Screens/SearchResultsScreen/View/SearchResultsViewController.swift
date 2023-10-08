@@ -68,8 +68,6 @@ extension SearchResultsViewController: UITableViewDelegate, UITableViewDataSourc
         
         
     }
-    
-
 }
 extension SearchResultsViewController: ISearchResultsViewControllerInput {
     

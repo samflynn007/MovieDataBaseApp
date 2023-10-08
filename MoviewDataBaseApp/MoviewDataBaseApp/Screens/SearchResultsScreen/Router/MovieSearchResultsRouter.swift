@@ -16,7 +16,6 @@ protocol ISearchResultsDataPassing {
 }
 
 final class SearchResultsViewRouter: ISearchResultsViewRoutingLogic, ISearchResultsDataPassing {
-    
 
     // MARK: - Variables
     weak var viewController: SearchResultsViewController?
@@ -26,12 +25,4 @@ final class SearchResultsViewRouter: ISearchResultsViewRoutingLogic, ISearchResu
         self.dataStore = dataStore
     }
 }
-
-//    MARK: - Routing Methods
-
-extension SearchResultsViewRouter {
-    
-    
-}
-
 
