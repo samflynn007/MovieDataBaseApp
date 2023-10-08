@@ -84,7 +84,7 @@ struct Rating: Codable {
 
 struct Section<T> {
     var title: String
-    var expanded: Bool
+    var collapse: Bool
     var listData: [T]
 }
 

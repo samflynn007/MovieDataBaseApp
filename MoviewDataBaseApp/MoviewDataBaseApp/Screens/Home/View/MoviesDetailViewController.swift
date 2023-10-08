@@ -42,19 +42,20 @@ class MoviesDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.largeTitleDisplayMode = .never
         navigationItem.title = movieData?.Title
         setupMovieData()
         configure()
         
-            
         
     }
     
     func configure() {
         tableView.register(UINib(nibName: DetailInfoTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DetailInfoTableViewCell.identifier)
         tableView.register(UINib(nibName: RatingViewTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RatingViewTableViewCell.identifier)
+        
         MoviesDetailConfigurator.configureMoviesView(viewController: self)
-        guard let posterURL = URL(string: movieData?.Poster ?? "") else { return }
+        guard let posterURL = URL(string: movieData?.Poster ?? CommonConstant.emptyString) else { return }
         movieHeader.moviePoster.load(url: posterURL)
         movieHeader.movieTitle.text = movieData?.Title
         movieHeader.genre.text = movieData?.Genre
@@ -85,9 +86,9 @@ extension MoviesDetailViewController: UITableViewDelegate, UITableViewDataSource
             
             return cell
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: RatingViewTableViewCell.identifier, for: indexPath) as? RatingViewTableViewCell else { return UITableViewCell() }
-            let rating = Double(movieData?.imdbRating ?? "0") ?? 0.0
-            cell.configure(rating)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RatingViewTableViewCell.identifier, for: indexPath) as? RatingViewTableViewCell, let ratingDouble = Double(movieData?.imdbRating ?? CommonConstant.emptyString) else { return UITableViewCell() }
+            
+            cell.configure(ratingDouble)
             return cell
         case 2:
             return UITableViewCell()

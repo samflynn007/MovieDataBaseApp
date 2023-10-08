@@ -60,10 +60,11 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9hJ-eH-yBc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" largeTitles="YES" id="r0s-75-YJ7">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" barStyle="black" largeTitles="YES" id="r0s-75-YJ7">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.70980392160000005" green="0.79607843140000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -71,6 +72,10 @@
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                         </textAttributes>
                         <imageReference key="backIndicatorImage" image="chevron.backward.square.fill" catalog="system" symbolScale="medium" renderingMode="original"/>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" red="0.70980392160000005" green="0.79607843140000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="compactScrollEdgeAppearance" backgroundEffect="systemUltraThinMaterialLight"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

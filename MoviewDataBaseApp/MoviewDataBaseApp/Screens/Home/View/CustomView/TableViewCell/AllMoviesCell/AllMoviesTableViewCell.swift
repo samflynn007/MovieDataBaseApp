@@ -36,8 +36,9 @@ class AllMoviesTableViewCell: UITableViewCell {
     
     func configure(movieDetail: MovieDetails) {
         self.movieTitle.text = movieDetail.Title
-        self.posterImage.load(url: URL(string: movieDetail.Poster ?? "")!)
-        self.languageLabel.text = "Language: \(movieDetail.Language ?? "")"
+        guard let urlStr = URL(string: movieDetail.Poster ?? CommonConstant.emptyString) else { return }
+        self.posterImage.load(url: urlStr)
+        self.languageLabel.text = "Language: \(movieDetail.Language ?? CommonConstant.emptyString)"
         self.yearLabel.text = "Year: \(movieDetail.Year)"
     }
     

@@ -54,9 +54,17 @@ final class MoviesViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setUpHomeView()
+        navigationSetUp()
         
     }
-
+    func navigationSetUp() {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithOpaqueBackground()
+        navigationBarAppearance.backgroundColor = UIColor(named: Colors.primeColor)
+        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+        UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+    }
 
     func configure() {
         MoviesConfigurator.configureMoviesView(viewController: self)
@@ -85,7 +93,7 @@ extension MoviesViewController: IMoviesViewControllerInput {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-        print(moviesSections[0])
+       
     }
     
     func displayMovieList(movieDetails: [MovieDetails]) {
@@ -100,14 +108,10 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if moviesSections[section].expanded == true {
-            return moviesSections[section].listData.count
-        } else {
-            return 0
-        }
+        return  moviesSections[section].collapse ? 0: moviesSections[section].listData.count
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 70
     }
     
     
@@ -129,20 +133,22 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
-        header.button.setTitle(moviesSections[section].title, for: .normal)
-        header.delegate = self
-        header.section = section
+        
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? CollapsibleTableViewHeader ?? CollapsibleTableViewHeader(reuseIdentifier: "header")
+//            header.backgroundColor = UIColor(red: 178/255, green: 83/255, blue: 62/255, alpha: 1.0)
+            header.titleLabel.text = moviesSections[section].title
+        
+            header.arrowLabel.text = ">"
+            header.setCollapsed(collapsed: moviesSections[section].collapse)
+            header.section = section
+            header.delegate = self
         
         return header
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if moviesSections[indexPath.section].expanded {
-            return UITableView.automaticDimension
-        } else {
-            return 0
-        }
+        
+        return moviesSections[indexPath.section].collapse ? 0 : UITableView.automaticDimension
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -172,10 +178,20 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
 }
     
   
-extension MoviesViewController: HeaderDelegate {
-    func callHeader(index: Int) {
+extension MoviesViewController: CollapsibleTableViewHeaderDelegate {
+    
+    func toggleSection(header: CollapsibleTableViewHeader, section: Int) {
+        let collapsed = !moviesSections[section].collapse
+        // Toggle collapse
+        moviesSections[section].collapse = collapsed
+        header.setCollapsed(collapsed: collapsed)
         
-        moviesSections[index].expanded = !moviesSections[index].expanded
+        // Reload the whole section
+        tableView.reloadSections([section], with: .automatic)
+    }
+    
+    func callHeader(index: Int) {
+        moviesSections[index].collapse = !moviesSections[index].collapse
         tableView.reloadSections([index], with: .automatic)
     }
     

@@ -56,11 +56,11 @@ extension MoviesViewPresenter: IMoviesViewPresenterInput {
         let splitDirectors = directorsArray.flatMap { $0.components(separatedBy: Home.comma) }
 
         var movieDatabaseList = [Section<Any>]()
-        movieDatabaseList.append(Section(title:  Home.year, expanded: false, listData: yearArray.sorted()))
-        movieDatabaseList.append(Section(title: Home.genre, expanded: false, listData: splitGenres))
-        movieDatabaseList.append(Section(title: Home.directors, expanded: false, listData: splitDirectors))
-        movieDatabaseList.append(Section(title: Home.actors, expanded: false, listData: splitActors))
-        movieDatabaseList.append(Section(title: Home.allMovies, expanded: false, listData: allMovies))
+        movieDatabaseList.append(Section(title:  Home.year, collapse: true, listData: yearArray.sorted()))
+        movieDatabaseList.append(Section(title: Home.genre, collapse: true, listData: splitGenres))
+        movieDatabaseList.append(Section(title: Home.directors, collapse: true, listData: splitDirectors))
+        movieDatabaseList.append(Section(title: Home.actors, collapse: true, listData: splitActors))
+        movieDatabaseList.append(Section(title: Home.allMovies, collapse: true, listData: allMovies))
         output?.displaySectionList(sectionMoview: movieDatabaseList)
     }
 }

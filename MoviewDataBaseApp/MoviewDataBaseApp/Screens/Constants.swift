@@ -40,3 +40,6 @@ enum ImageConstats {
     
 }
 
+enum CommonConstant {
+    static let emptyString = ""
+}
