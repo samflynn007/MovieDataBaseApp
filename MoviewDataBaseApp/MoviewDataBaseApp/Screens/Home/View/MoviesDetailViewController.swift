@@ -35,17 +35,19 @@ class MoviesDetailViewController: UIViewController {
     // MARK: - Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        configure()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        configure()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupMovieData()
-        configure()
+        configureUI()
         navigationSetup()
         
     }
@@ -68,12 +70,16 @@ class MoviesDetailViewController: UIViewController {
     }
     
     private func configure() {
+        MoviesDetailConfigurator.configureMoviesView(viewController: self)
+    }
+    
+    private func configureUI() {
         tableView.register(UINib(nibName: DetailInfoTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DetailInfoTableViewCell.identifier)
         tableView.register(UINib(nibName: RatingViewTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RatingViewTableViewCell.identifier)
         tableView.register(UINib(nibName: CastAndCrewTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: CastAndCrewTableViewCell.identifier)
         tableView.register(UINib(nibName: RatingInforTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RatingInforTableViewCell.identifier)
         
-        MoviesDetailConfigurator.configureMoviesView(viewController: self)
+        
         guard let posterURL = URL(string: movieData?.Poster ?? CommonConstant.emptyString) else { return }
         movieHeader.moviePoster.load(url: posterURL)
         movieHeader.movieTitle.text = movieData?.Title
