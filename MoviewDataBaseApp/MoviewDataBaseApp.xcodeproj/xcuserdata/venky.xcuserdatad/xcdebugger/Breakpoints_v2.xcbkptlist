@@ -7,49 +7,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "54AA24BC-FC5B-4C89-BFF8-96BD7807DB60"
-            shouldBeEnabled = "No"
+            uuid = "E59F67F5-94FC-4911-A485-F9D598BBFAAC"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MoviewDataBaseApp/Interactor/MoviewsViewInteractor.swift"
+            filePath = "MoviewDataBaseApp/Router/MoviesViewRouter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "fetchSectionData()"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "navigateToMovieDetailScreen(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E9F3A835-28D0-4721-8798-1162A98C3885"
-            shouldBeEnabled = "No"
+            uuid = "85040BB6-AED1-4C06-8287-F01684504563"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MoviewDataBaseApp/Router/MoviesViewRouter.swift"
+            filePath = "MoviewDataBaseApp/Screens/DetailScreen/Router/MoviesDetailDataStore.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "navigateToPreViewController(for:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D7FDACAD-7767-4241-AD56-069BC5CA1E3D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MoviewDataBaseApp/Router/MoviesViewRouter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "navigateToPreViewController(for:)"
-            landmarkType = "7">
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "DefaultMovieDetailDataStore"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
