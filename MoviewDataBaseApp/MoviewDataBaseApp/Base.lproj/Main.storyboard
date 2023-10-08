@@ -150,6 +150,34 @@
                                         <outlet property="movieTitle" destination="RcF-3S-zWP" id="YCU-yz-hif"/>
                                     </connections>
                                 </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="ZXr-HS-Qqp">
+                                    <rect key="frame" x="0.0" y="566.66666793823242" width="393" height="90"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bK0-Uz-WaC">
+                                            <rect key="frame" x="20" y="20" width="353" height="50"/>
+                                            <color key="backgroundColor" red="0.69803921570000005" green="0.32549019610000002" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="Rate it"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <integer key="value" value="25"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onTapRating:" destination="bRI-Ww-Pc4" eventType="touchUpInside" id="qCB-4g-DQm"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="bK0-Uz-WaC" firstAttribute="top" secondItem="ZXr-HS-Qqp" secondAttribute="top" constant="20" id="Hcd-p6-59H"/>
+                                        <constraint firstAttribute="bottom" secondItem="bK0-Uz-WaC" secondAttribute="bottom" constant="20" id="ZTj-uc-O84"/>
+                                        <constraint firstItem="bK0-Uz-WaC" firstAttribute="leading" secondItem="ZXr-HS-Qqp" secondAttribute="leading" constant="20" id="ke2-ey-Pax"/>
+                                        <constraint firstAttribute="trailing" secondItem="bK0-Uz-WaC" secondAttribute="trailing" constant="20" id="wFE-1B-IdT"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="b2s-vI-8wd">
                                         <rect key="frame" x="0.0" y="495" width="393" height="43.666667938232422"/>
@@ -231,6 +259,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLx-oI-dxu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2265" y="-70"/>
+        </scene>
+        <!--Rating View Controller-->
+        <scene sceneID="3Cl-CM-0fI">
+            <objects>
+                <viewController storyboardIdentifier="RatingViewController" id="CTL-4W-m3s" customClass="RatingViewController" customModule="MoviewDataBaseApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jjj-r0-GDb">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ZVd-vn-1py"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P3e-3m-zna" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3103" y="-79"/>
         </scene>
     </scenes>
     <resources>

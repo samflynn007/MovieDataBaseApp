@@ -64,6 +64,8 @@ class MoviesDetailViewController: UIViewController {
     private func configure() {
         tableView.register(UINib(nibName: DetailInfoTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DetailInfoTableViewCell.identifier)
         tableView.register(UINib(nibName: RatingViewTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RatingViewTableViewCell.identifier)
+        tableView.register(UINib(nibName: CastAndCrewTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: CastAndCrewTableViewCell.identifier)
+        tableView.register(UINib(nibName: RatingInforTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RatingInforTableViewCell.identifier)
         
         MoviesDetailConfigurator.configureMoviesView(viewController: self)
         guard let posterURL = URL(string: movieData?.Poster ?? CommonConstant.emptyString) else { return }
@@ -87,7 +89,7 @@ class MoviesDetailViewController: UIViewController {
 
 extension MoviesDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -99,12 +101,20 @@ extension MoviesDetailViewController: UITableViewDelegate, UITableViewDataSource
             
             return cell
         case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CastAndCrewTableViewCell.identifier, for: indexPath) as? CastAndCrewTableViewCell, let movie = movieData else { return UITableViewCell() }
+            cell.configure(movie)
+            return cell
+        case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: RatingViewTableViewCell.identifier, for: indexPath) as? RatingViewTableViewCell, let ratingDouble = Double(movieData?.imdbRating ?? CommonConstant.emptyString) else { return UITableViewCell() }
             
             cell.configure(ratingDouble)
             return cell
-        case 2:
-            return UITableViewCell()
+        case 3:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RatingInforTableViewCell.identifier, for: indexPath) as? RatingInforTableViewCell, let movie = movieData else { return UITableViewCell() }
+            
+            cell.configure(movie)
+            return cell
+            
         default:
             return UITableViewCell()
             
@@ -119,4 +129,7 @@ extension MoviesDetailViewController: UITableViewDelegate, UITableViewDataSource
 }
 extension MoviesDetailViewController: IMoviesDetailViewControllerInput {
     
+    @IBAction private func onTapRating(_ sender: UIButton) {
+        router?.navigateToRating()
+    }
 }

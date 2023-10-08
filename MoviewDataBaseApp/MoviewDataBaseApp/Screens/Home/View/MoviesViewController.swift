@@ -53,6 +53,7 @@ final class MoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        title = "Movie Categories"
         setUpHomeView()
         navigationSetUp()
         
@@ -135,7 +136,6 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? CollapsibleTableViewHeader ?? CollapsibleTableViewHeader(reuseIdentifier: "header")
-//            header.backgroundColor = UIColor(red: 178/255, green: 83/255, blue: 62/255, alpha: 1.0)
             header.titleLabel.text = moviesSections[section].title
         
             header.arrowLabel.text = ">"

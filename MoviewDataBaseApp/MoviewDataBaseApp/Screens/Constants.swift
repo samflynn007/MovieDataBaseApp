@@ -30,6 +30,7 @@ enum DetailView {
 
 enum Colors {
     static let primeColor = "PrimeColor"
+    static let buttonColor = "buttonColor"
 }
 
 enum ImageConstats {

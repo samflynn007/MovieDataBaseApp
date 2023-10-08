@@ -8,7 +8,7 @@
 import Foundation
 
 protocol IMoviesDetailViewRoutingLogic {
-   
+    func navigateToRating()
 }
 
 protocol IMoviesDetailDataPassing {
@@ -31,7 +31,10 @@ final class MoviesDetailViewRouter: NSObject, IMoviesDetailViewRoutingLogic, IMo
 //    MARK: - Routing Methods
 
 extension MoviesDetailViewRouter {
-    
+    func navigateToRating() {
+        guard let movieDetailVC = RatingViewController.instance() as? RatingViewController else { return }
+        viewController?.navigationController?.pushViewController(movieDetailVC, animated: true)
+    }
 
 }
 
