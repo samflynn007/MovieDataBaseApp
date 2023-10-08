@@ -22,12 +22,35 @@ class PreviewViewController: UIViewController {
     var output: IPreviewScreenViewControllerOutput?
     var router: (IPreviewScreenViewRoutingLogic & IPreviewScreenDataPassing)?
     
+    // MARK: - Object lifecycle
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        configure()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        configure()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    func configure() {
+        PreviewScreenConfigurator.configureMoviesView(viewController: self)
+
+    }
+    
+    func setupUI() {
         navigationItem.title = "Movie List (\(movieDetails.count))"
         tableView.register(UINib(nibName: AllMoviesTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: AllMoviesTableViewCell.identifier)
-        PreviewScreenConfigurator.configureMoviesView(viewController: self)
-         
+        
     }
 }
 extension PreviewViewController: UITableViewDelegate, UITableViewDataSource {

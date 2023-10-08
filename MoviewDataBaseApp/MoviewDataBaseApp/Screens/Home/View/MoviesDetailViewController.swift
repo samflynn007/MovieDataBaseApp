@@ -48,10 +48,16 @@ class MoviesDetailViewController: UIViewController {
         configure()
         navigationSetup()
         
-        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     private func navigationSetup() {
         navigationController?.navigationBar.prefersLargeTitles = false
+        
         // button customization
         backButton.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
         backButton.setTitle("Return", for: .normal)
