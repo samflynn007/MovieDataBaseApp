@@ -17,10 +17,11 @@ protocol IMoviesDetailViewControllerOutput {
 
 
 class MoviesDetailViewController: UIViewController {
-
+    
     var output: IMoviesDetailViewControllerOutput?
     var router: (NSObject & IMoviesDetailViewRoutingLogic & IMoviesDetailDataPassing)?
     var movieData: MovieDetails?
+    private let backButton = UIButton(type: .system)
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -42,15 +43,25 @@ class MoviesDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.largeTitleDisplayMode = .never
-        navigationItem.title = movieData?.Title
+        
         setupMovieData()
         configure()
+        navigationSetup()
         
         
     }
+    private func navigationSetup() {
+        navigationController?.navigationBar.prefersLargeTitles = false
+        // button customization
+        backButton.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
+        backButton.setTitle("Return", for: .normal)
+        backButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        backButton.addTarget(self, action: #selector(handleBackButtonTapped), for: .touchUpInside)
+        let backButtonItem = UIBarButtonItem(customView: backButton)
+        self.navigationItem.leftBarButtonItem = backButtonItem
+    }
     
-    func configure() {
+    private func configure() {
         tableView.register(UINib(nibName: DetailInfoTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DetailInfoTableViewCell.identifier)
         tableView.register(UINib(nibName: RatingViewTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RatingViewTableViewCell.identifier)
         
@@ -63,12 +74,14 @@ class MoviesDetailViewController: UIViewController {
     private func setupMovieData() {
         if let movieData  = router?.dataStore.movieDetail {
             self.movieData = movieData
-            print(movieData)
         }
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
         }
         
+    }
+    @objc private func handleBackButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

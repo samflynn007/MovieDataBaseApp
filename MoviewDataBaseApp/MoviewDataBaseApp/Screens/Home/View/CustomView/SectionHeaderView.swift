@@ -17,7 +17,15 @@ class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
      let titleLabel = UILabel()
      let arrowLabel = UILabel()
     
-    
+//    l
+    let horizontalStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.spacing = 8
+        return stackView
+    }()
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         headerViewSetUp()
@@ -25,7 +33,7 @@ class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        visualConstrainSetUp()
+        constrainSetUp()
        
     }
     
@@ -41,30 +49,22 @@ class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         arrowLabel.translatesAutoresizingMaskIntoConstraints = false
     }
-    private func visualConstrainSetUp() {
-        let views = [
-            "titleLabel" : titleLabel,
-            "arrowLabel" : arrowLabel,
-        ]
+    private func constrainSetUp() {
+        
+        horizontalStackView.addArrangedSubview(titleLabel)
+        horizontalStackView.addArrangedSubview(arrowLabel)
 
-        contentView.addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-20-[titleLabel]-[arrowLabel]-20-|",
-            options: [],
-            metrics: nil,
-            views: views
-        ))
-        contentView.addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-[titleLabel]-|",
-            options: [],
-            metrics: nil,
-            views: views
-        ))
-        contentView.addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-[arrowLabel]-|",
-            options: [],
-            metrics: nil,
-            views: views
-        ))
+        // Add the stack view to your view hierarchy
+        contentView.addSubview(horizontalStackView)
+        
+        NSLayoutConstraint.activate([
+            // Constrain the stack view to the edges of its superview (or adjust the superview accordingly)
+            horizontalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            horizontalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            horizontalStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            horizontalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+        ])
+
     }
     
 @objc func tapHeader(gestureRecognizer: UITapGestureRecognizer) {

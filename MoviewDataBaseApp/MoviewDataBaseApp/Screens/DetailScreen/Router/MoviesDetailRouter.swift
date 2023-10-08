@@ -24,7 +24,6 @@ final class MoviesDetailViewRouter: NSObject, IMoviesDetailViewRoutingLogic, IMo
     
     init(dataStore: IMovieDetailDataStore) {
         self.dataStore = dataStore
-        print(dataStore)
     }
     
 }
