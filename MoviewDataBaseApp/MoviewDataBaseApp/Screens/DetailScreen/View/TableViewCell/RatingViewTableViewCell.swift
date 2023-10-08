@@ -19,7 +19,7 @@ class RatingViewTableViewCell: UITableViewCell {
     }()
     let ratingLabel: UILabel = {
         let label = UILabel()
-        label.text = "IMDB Rating"
+        label.text = DetailView.imdbRating
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -62,56 +62,3 @@ class RatingViewTableViewCell: UITableViewCell {
     
 
 }
-class RatingView: UIView {
-    private let starImageViews: [UIImageView] = {
-        var imageViews = [UIImageView]()
-        for _ in 0..<10 {
-            let imageView = UIImageView()
-            imageView.contentMode = .scaleAspectFit
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.image = UIImage(named: "star_empty") // You can use your own star image
-            imageViews.append(imageView)
-        }
-        return imageViews
-    }()
-
-    var rating: Int = 0 {
-        didSet {
-            updateRating()
-        }
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupUI()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupUI()
-    }
-
-    private func setupUI() {
-        for (index, starImageView) in starImageViews.enumerated() {
-            addSubview(starImageView)
-            NSLayoutConstraint.activate([
-                starImageView.widthAnchor.constraint(equalToConstant: 20),
-                starImageView.heightAnchor.constraint(equalToConstant: 20),
-                starImageView.topAnchor.constraint(equalTo: topAnchor),
-                starImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: CGFloat(index * 30))
-            ])
-        }
-    }
-
-    private func updateRating() {
-        for (index, starImageView) in starImageViews.enumerated() {
-            let imageName = index < rating ? "star_filled" : "star_empty"
-            starImageView.image = UIImage(named: imageName)
-        }
-    }
-}
-
-
-   
-    
-

@@ -15,5 +15,4 @@ final class DefaultPreviewScreenDataStore: IPreviewScreenDataStore {
     var movieDetail: MovieDetails?
     
 
-//    var movieDetails: [MovieDetails]?
 }

@@ -12,16 +12,13 @@ typealias ISearchResultsViewInteractorOutput = ISearchResultsPresenterInput
 
 final class SearchResultsViewInteractor {
     struct Dependency {
-//        var worker: IMoviesViewWorker?
         var output: ISearchResultsViewInteractorOutput?
     }
     
     // MARK: - Properties
-//    private var worker: IMoviesViewWorker?
     private var output: ISearchResultsViewInteractorOutput?
     
     init(with dependency: Dependency) {
-//        worker = dependency.worker
         output = dependency.output
     }
 }

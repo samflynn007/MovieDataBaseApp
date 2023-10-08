@@ -14,7 +14,6 @@ struct SearchResultsConfigurator {
         router.viewController = viewController
         
         let presenter = SearchResultsViewPresenter(output: viewController)
-//        let worker    = MoviesViewWorker()
         
         let interactorDependency = SearchResultsViewInteractor.Dependency(output: presenter)
         let interactor = SearchResultsViewInteractor(with: interactorDependency)

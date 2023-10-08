@@ -35,7 +35,7 @@ final class MoviesViewController: UIViewController {
     private let searchController: UISearchController = {
         
         let controller = UISearchController(searchResultsController: SearchResultsViewController())
-        controller.searchBar.placeholder = "Search For a Movie or a TV Show"
+        controller.searchBar.placeholder = Home.searchPlaceholderText
         controller.searchBar.searchBarStyle = .minimal
         return controller
     }()
@@ -65,9 +65,10 @@ final class MoviesViewController: UIViewController {
     func setUpHomeView() {
         output?.fetchMoviesData()
         output?.fetchSectionData()
+        view.backgroundColor = UIColor(named: Colors.primeColor)
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        self.tableView.register(UINib(nibName: "AllMoviesTableViewCell", bundle: nil), forCellReuseIdentifier: "AllMoviesTableViewCell")
+        self.tableView.register(UINib(nibName: AllMoviesTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: AllMoviesTableViewCell.identifier)
         self.tableView.tableFooterView = UIView()
 
         searchController.searchResultsUpdater = self
@@ -114,11 +115,11 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.section {
         case 4:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AllMoviesTableViewCell") as! AllMoviesTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: AllMoviesTableViewCell.identifier) as! AllMoviesTableViewCell
             cell.configure(movieDetail: (moviesSections[indexPath.section].listData[indexPath.row] as? MovieDetails)!)
             return cell
         default :
-            guard  let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else { return UITableViewCell() }
+            guard  let cell = tableView.dequeueReusableCell(withIdentifier: Home.cellConstant) else { return UITableViewCell() }
             cell.textLabel?.text = moviesSections[indexPath.section].listData[indexPath.row] as? String
             return cell
             
@@ -157,13 +158,13 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
     func getSectionWiseData(secInd: Int, compareValue: String) -> [MovieDetails]? {
         switch secInd {
         case 0:
-            return movies.filter({$0.Year.components(separatedBy: "-").contains(compareValue)})
+            return movies.filter({$0.Year.components(separatedBy: Home.hyphen).contains(compareValue)})
         case 1:
-            return movies.filter({$0.Genre.components(separatedBy: ",").contains(compareValue)})
+            return movies.filter({$0.Genre.components(separatedBy: Home.comma).contains(compareValue)})
         case 2:
-            return movies.filter({$0.Director.components(separatedBy: ",").contains(compareValue)}).sorted()
+            return movies.filter({$0.Director.components(separatedBy: Home.comma).contains(compareValue)}).sorted()
         case 3:
-            return movies.filter({$0.Actors.components(separatedBy: ",").contains(compareValue)})
+            return movies.filter({$0.Actors.components(separatedBy: Home.comma).contains(compareValue)})
         default:
             return nil
         }
@@ -187,7 +188,7 @@ extension MoviesViewController: UISearchResultsUpdating, SearchResultsViewContro
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         
-        guard let query = searchBar.text, !query.trimmingCharacters(in: .whitespaces).isEmpty, query.trimmingCharacters(in: .whitespaces).count >= 2, let resultsController = searchController.searchResultsController as? SearchResultsViewController else { return }
+        guard let query = searchBar.text, !query.trimmingCharacters(in: .whitespaces).isEmpty, query.trimmingCharacters(in: .whitespaces).count >= Home.minimumSearchLimit, let resultsController = searchController.searchResultsController as? SearchResultsViewController else { return }
         resultsController.delegate = self
         filteredMovies = movies.filter { movie in
             return movie.Title.lowercased().contains(query.lowercased()) ||

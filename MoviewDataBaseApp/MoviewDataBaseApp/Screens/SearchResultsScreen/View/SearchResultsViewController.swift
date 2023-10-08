@@ -29,14 +29,13 @@ class SearchResultsViewController: UIViewController {
     
     public let searchResultsTableView: UITableView = {
         let tableView = UITableView(frame: .zero)
-        tableView.register(UINib(nibName: "AllMoviesTableViewCell", bundle: nil), forCellReuseIdentifier: AllMoviesTableViewCell.identifier)
+        tableView.register(UINib(nibName: AllMoviesTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: AllMoviesTableViewCell.identifier)
         return tableView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .systemGreen
+        searchResultsTableView.backgroundColor = UIColor(named: Colors.primeColor)
         view.addSubview(searchResultsTableView)
         searchResultsTableView.delegate = self
         searchResultsTableView.dataSource = self
@@ -57,6 +56,7 @@ extension SearchResultsViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AllMoviesTableViewCell.identifier, for: indexPath) as? AllMoviesTableViewCell else { return UITableViewCell() }
         let movie = movieData[indexPath.row]
+        cell.backgroundColor  = UIColor(named: Colors.primeColor)
         cell.configure(movieDetail: movie)
         return cell
     }

@@ -27,15 +27,12 @@ final class MoviesViewWorker: IMoviesViewWorker {
             completion(.failure(.invalidURL))
             return
         }
-
-       
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
                 let jsonData = try decoder.decode([MovieDetails].self, from: data)
                 completion(.success(jsonData))
             }catch {
-                print("User fetch api error", error)
                 completion(.failure(.network(error)))
             }
     }

@@ -14,7 +14,6 @@ struct PreviewScreenConfigurator {
         router.viewController = viewController
         
         let presenter = PreviewScreenViewPresenter(output: viewController)
-//        let worker    = MoviesViewWorker()
         
         let interactorDependency = PreviewScreenViewInteractor.Dependency(output: presenter)
         let interactor = PreviewScreenViewInteractor(with: interactorDependency)

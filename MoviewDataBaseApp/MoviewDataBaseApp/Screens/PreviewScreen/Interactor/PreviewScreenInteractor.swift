@@ -12,16 +12,13 @@ typealias IPreviewScreenViewInteractorOutput = IPreviewScreenPresenterInput
 
 final class PreviewScreenViewInteractor {
     struct Dependency {
-//        var worker: IMoviesViewWorker?
         var output: IPreviewScreenViewInteractorOutput?
     }
     
     // MARK: - Properties
-//    private var worker: IMoviesViewWorker?
     private var output: IPreviewScreenViewInteractorOutput?
     
     init(with dependency: Dependency) {
-//        worker = dependency.worker
         output = dependency.output
     }
 }

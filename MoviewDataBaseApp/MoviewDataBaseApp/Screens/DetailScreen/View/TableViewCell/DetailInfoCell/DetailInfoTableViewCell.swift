@@ -26,7 +26,7 @@ class DetailInfoTableViewCell: UITableViewCell {
     }
     
     func configure(_ movieDetail: MovieDetails) {
-        self.movieOverview.text = "Plot: \(movieDetail.Plot ?? "")"
+        self.movieOverview.text = "\(movieDetail.Plot ?? "")"
         self.RunTime.text = "RunTime:\(movieDetail.Runtime ?? "")"
     }
     

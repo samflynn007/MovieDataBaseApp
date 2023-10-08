@@ -33,7 +33,7 @@ extension MoviesViewInteractor: IMoviesViewInteractorInput {
     
     
     func fetchMoviesData() {
-        worker?.fetchMovieDetails(urlString: "movies", completion: { [weak self] result in
+        worker?.fetchMovieDetails(urlString: Home.fileNameString, completion: { [weak self] result in
             switch result {
             case .success(let movieDetails):
                 self?.output?.presentMoviesData(movieResponse: movieDetails)
@@ -45,7 +45,7 @@ extension MoviesViewInteractor: IMoviesViewInteractorInput {
     }
     
     func fetchSearchData(_ movies: [MovieDetails], query: String) {
-        var filteredMovies = movies.filter { movie in
+        let filteredMovies = movies.filter { movie in
             return movie.Title.lowercased().contains(query.lowercased()) ||
             movie.Genre.lowercased().contains(query.lowercased()) ||
             movie.Director.lowercased().contains(query.lowercased()) ||

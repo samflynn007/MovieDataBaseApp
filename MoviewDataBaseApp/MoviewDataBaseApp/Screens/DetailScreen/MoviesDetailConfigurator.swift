@@ -12,9 +12,8 @@ struct MoviesDetailConfigurator {
         router.viewController = viewController
         
         let presenter = MoviesDetailViewPresenter(output: viewController)
-        let worker    = MoviesDetailViewWorker()
         
-        let interactorDependency = MoviesDetailViewInteractor.Dependency(worker: worker, output: presenter)
+        let interactorDependency = MoviesDetailViewInteractor.Dependency(output: presenter)
         let interactor = MoviesDetailViewInteractor(with: interactorDependency)
         
         viewController.output = interactor

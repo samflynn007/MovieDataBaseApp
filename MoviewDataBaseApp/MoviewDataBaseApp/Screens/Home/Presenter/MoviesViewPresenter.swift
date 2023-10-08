@@ -47,20 +47,20 @@ extension MoviesViewPresenter: IMoviesViewPresenterInput {
         let allMovies = movieDetails
      
         let genresArray = Array(genreArray).sorted()
-        let splitGenres = genresArray.flatMap { $0.components(separatedBy: ", ") }
+        let splitGenres = genresArray.flatMap { $0.components(separatedBy: Home.comma) }
         
         let actorsArray = Array(actors).sorted()
-        let splitActors = actorsArray.flatMap { $0.components(separatedBy: ", ") }
+        let splitActors = actorsArray.flatMap { $0.components(separatedBy: Home.comma) }
         
         let directorsArray = Array(directors).sorted()
-        let splitDirectors = directorsArray.flatMap { $0.components(separatedBy: ", ") }
+        let splitDirectors = directorsArray.flatMap { $0.components(separatedBy: Home.comma) }
 
         var movieDatabaseList = [Section<Any>]()
-        movieDatabaseList.append(Section(title:  "Year", expanded: false, listData: yearArray.sorted()))
-        movieDatabaseList.append(Section(title: "Genre", expanded: false, listData: splitGenres))
-        movieDatabaseList.append(Section(title: "Directors", expanded: false, listData: splitDirectors))
-        movieDatabaseList.append(Section(title: "Actors", expanded: false, listData: splitActors))
-        movieDatabaseList.append(Section(title: "All Movies", expanded: false, listData: allMovies))
+        movieDatabaseList.append(Section(title:  Home.year, expanded: false, listData: yearArray.sorted()))
+        movieDatabaseList.append(Section(title: Home.genre, expanded: false, listData: splitGenres))
+        movieDatabaseList.append(Section(title: Home.directors, expanded: false, listData: splitDirectors))
+        movieDatabaseList.append(Section(title: Home.actors, expanded: false, listData: splitActors))
+        movieDatabaseList.append(Section(title: Home.allMovies, expanded: false, listData: allMovies))
         output?.displaySectionList(sectionMoview: movieDatabaseList)
     }
 }

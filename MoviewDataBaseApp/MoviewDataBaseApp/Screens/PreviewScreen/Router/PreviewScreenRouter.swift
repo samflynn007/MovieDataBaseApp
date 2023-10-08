@@ -22,7 +22,7 @@ final class PreviewScreenViewRouter: IPreviewScreenViewRoutingLogic, IPreviewScr
     // MARK: - Variables
     weak var viewController: PreviewViewController?
     var dataStore: IPreviewScreenDataStore
-    //
+    
     init(dataStore: IPreviewScreenDataStore) {
         self.dataStore = dataStore
     }

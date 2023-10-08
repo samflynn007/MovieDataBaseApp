@@ -51,8 +51,8 @@ class MoviesDetailViewController: UIViewController {
     }
     
     func configure() {
-        tableView.register(UINib(nibName: "DetailInfoTableViewCell", bundle: nil), forCellReuseIdentifier: DetailInfoTableViewCell.identifier)
-        tableView.register(UINib(nibName: "RatingViewTableViewCell", bundle: nil), forCellReuseIdentifier: RatingViewTableViewCell.identifier)
+        tableView.register(UINib(nibName: DetailInfoTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DetailInfoTableViewCell.identifier)
+        tableView.register(UINib(nibName: RatingViewTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RatingViewTableViewCell.identifier)
         MoviesDetailConfigurator.configureMoviesView(viewController: self)
         guard let posterURL = URL(string: movieData?.Poster ?? "") else { return }
         movieHeader.moviePoster.load(url: posterURL)

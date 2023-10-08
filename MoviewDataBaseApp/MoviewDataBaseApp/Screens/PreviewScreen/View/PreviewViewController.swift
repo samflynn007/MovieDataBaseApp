@@ -26,7 +26,7 @@ class PreviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Movie List (\(movieDetails.count))"
-        tableView.register(UINib(nibName: "AllMoviesTableViewCell", bundle: nil), forCellReuseIdentifier: AllMoviesTableViewCell.identifier)
+        tableView.register(UINib(nibName: AllMoviesTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: AllMoviesTableViewCell.identifier)
         PreviewScreenConfigurator.configureMoviesView(viewController: self)
          
     }
