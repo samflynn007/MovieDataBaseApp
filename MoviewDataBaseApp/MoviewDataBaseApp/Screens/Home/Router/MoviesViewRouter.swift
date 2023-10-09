@@ -40,7 +40,6 @@ extension MoviesViewRouter {
     }
     func navigateToSearchResultsController(with data: [MovieDetails]) {
         let movieResultsVC = SearchResultsViewController()
-//        movieResultsVC.movieData = data
         movieResultsVC.router?.dataStore.movieDetails = data
         viewController?.navigationController?.pushViewController(movieResultsVC, animated: true)
     }
@@ -48,7 +47,6 @@ extension MoviesViewRouter {
     func navigateToPreViewController(with data: [MovieDetails]) {
        guard let previewVC = PreviewViewController.instance() as? PreviewViewController else { return }
         previewVC.router?.dataStore.movieDetail = data
-//        previewVC.movieDetails = data/
         viewController?.navigationController?.pushViewController(previewVC, animated: true)
         
     }
