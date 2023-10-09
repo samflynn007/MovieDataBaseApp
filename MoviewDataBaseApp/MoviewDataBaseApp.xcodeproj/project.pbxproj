@@ -25,7 +25,7 @@
 		255C618A2AD2EFEC0064F816 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255C61892AD2EFEC0064F816 /* UIImageView+Ext.swift */; };
 		255C61902AD2FAA70064F816 /* CastAndCrewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255C618E2AD2FAA70064F816 /* CastAndCrewTableViewCell.swift */; };
 		255C61912AD2FAA70064F816 /* CastAndCrewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 255C618F2AD2FAA70064F816 /* CastAndCrewTableViewCell.xib */; };
-		255C61952AD2FFC50064F816 /* RatingInforTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255C61932AD2FFC50064F816 /* RatingInforTableViewCell.swift */; };
+		255C61952AD2FFC50064F816 /* RatingInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255C61932AD2FFC50064F816 /* RatingInfoTableViewCell.swift */; };
 		255C61962AD2FFC50064F816 /* RatingInforTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 255C61942AD2FFC50064F816 /* RatingInforTableViewCell.xib */; };
 		255C61982AD3117B0064F816 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255C61972AD3117B0064F816 /* RatingViewController.swift */; };
 		2560B0362AD03E6E00540D77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2560B0352AD03E6E00540D77 /* AppDelegate.swift */; };
@@ -79,7 +79,7 @@
 		255C61892AD2EFEC0064F816 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		255C618E2AD2FAA70064F816 /* CastAndCrewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastAndCrewTableViewCell.swift; sourceTree = "<group>"; };
 		255C618F2AD2FAA70064F816 /* CastAndCrewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastAndCrewTableViewCell.xib; sourceTree = "<group>"; };
-		255C61932AD2FFC50064F816 /* RatingInforTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingInforTableViewCell.swift; sourceTree = "<group>"; };
+		255C61932AD2FFC50064F816 /* RatingInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingInfoTableViewCell.swift; sourceTree = "<group>"; };
 		255C61942AD2FFC50064F816 /* RatingInforTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingInforTableViewCell.xib; sourceTree = "<group>"; };
 		255C61972AD3117B0064F816 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		2560B0322AD03E6E00540D77 /* MoviewDataBaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviewDataBaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,7 +250,7 @@
 		255C61922AD2FFA30064F816 /* RatingInformation */ = {
 			isa = PBXGroup;
 			children = (
-				255C61932AD2FFC50064F816 /* RatingInforTableViewCell.swift */,
+				255C61932AD2FFC50064F816 /* RatingInfoTableViewCell.swift */,
 				255C61942AD2FFC50064F816 /* RatingInforTableViewCell.xib */,
 			);
 			path = RatingInformation;
@@ -589,7 +589,7 @@
 				255C61982AD3117B0064F816 /* RatingViewController.swift in Sources */,
 				255C61902AD2FAA70064F816 /* CastAndCrewTableViewCell.swift in Sources */,
 				2531F3CC2AD15B3400E2A6B0 /* SearchResultsViewController.swift in Sources */,
-				255C61952AD2FFC50064F816 /* RatingInforTableViewCell.swift in Sources */,
+				255C61952AD2FFC50064F816 /* RatingInfoTableViewCell.swift in Sources */,
 				25230AB12AD1270E0008EEEB /* SectionHeaderView.swift in Sources */,
 				25CB32D62AD1B787001B79F6 /* MoviesDetailRouter.swift in Sources */,
 				252C37F42AD2509B00918A3A /* MovieSearchResultsPresenter.swift in Sources */,

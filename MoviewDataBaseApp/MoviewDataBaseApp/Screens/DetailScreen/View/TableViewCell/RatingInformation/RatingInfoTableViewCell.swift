@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RatingInforTableViewCell: UITableViewCell {
+class RatingInfoTableViewCell: UITableViewCell {
     
     static let identifier = "RatingInforTableViewCell"
     

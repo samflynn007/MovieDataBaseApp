@@ -77,7 +77,7 @@ class MoviesDetailViewController: UIViewController {
         tableView.register(UINib(nibName: DetailInfoTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DetailInfoTableViewCell.identifier)
         tableView.register(UINib(nibName: RatingViewTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RatingViewTableViewCell.identifier)
         tableView.register(UINib(nibName: CastAndCrewTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: CastAndCrewTableViewCell.identifier)
-        tableView.register(UINib(nibName: RatingInforTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RatingInforTableViewCell.identifier)
+        tableView.register(UINib(nibName: RatingInfoTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RatingInfoTableViewCell.identifier)
         
         
         guard let posterURL = URL(string: movieData?.Poster ?? CommonConstant.emptyString) else { return }
@@ -122,7 +122,7 @@ extension MoviesDetailViewController: UITableViewDelegate, UITableViewDataSource
             cell.configure(ratingDouble)
             return cell
         case 3:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: RatingInforTableViewCell.identifier, for: indexPath) as? RatingInforTableViewCell, let movie = movieData else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RatingInfoTableViewCell.identifier, for: indexPath) as? RatingInfoTableViewCell, let movie = movieData else { return UITableViewCell() }
             
             cell.configure(movie)
             return cell
