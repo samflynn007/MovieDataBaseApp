@@ -31,7 +31,6 @@ extension PreviewScreenViewRouter {
     func navigateToMovieDetailScreen(with data: MovieDetails) {
         guard let movieDetailVC = MoviesDetailViewController.instance() as? MoviesDetailViewController else { return }
         movieDetailVC.router?.dataStore.movieDetail = data
-        movieDetailVC.movieData = data
         viewController?.navigationController?.pushViewController(movieDetailVC, animated: true)
     }
 }
