@@ -89,9 +89,6 @@ class MoviesDetailViewController: UIViewController {
         if let movieData  = router?.dataStore.movieDetail {
             self.movieData = movieData
         }
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-        }
         
     }
     @objc private func handleBackButtonTapped() {

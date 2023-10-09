@@ -36,18 +36,19 @@ extension MoviesViewRouter {
     func navigateToMovieDetailScreen(with data: MovieDetails) {
         guard let movieDetailVC = MoviesDetailViewController.instance() as? MoviesDetailViewController else { return }
         movieDetailVC.router?.dataStore.movieDetail = data
-        movieDetailVC.movieData = data
         viewController?.navigationController?.pushViewController(movieDetailVC, animated: true)
     }
     func navigateToSearchResultsController(with data: [MovieDetails]) {
         let movieResultsVC = SearchResultsViewController()
-        movieResultsVC.movieData = data
+//        movieResultsVC.movieData = data
+        movieResultsVC.router?.dataStore.movieDetails = data
         viewController?.navigationController?.pushViewController(movieResultsVC, animated: true)
     }
     
     func navigateToPreViewController(with data: [MovieDetails]) {
        guard let previewVC = PreviewViewController.instance() as? PreviewViewController else { return }
-        previewVC.movieDetails = data
+        previewVC.router?.dataStore.movieDetail = data
+//        previewVC.movieDetails = data/
         viewController?.navigationController?.pushViewController(previewVC, animated: true)
         
     }

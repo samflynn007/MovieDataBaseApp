@@ -35,6 +35,7 @@ class PreviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupMovieData()
         setupUI()
 
     }
@@ -45,6 +46,11 @@ class PreviewViewController: UIViewController {
     func configure() {
         PreviewScreenConfigurator.configureMoviesView(viewController: self)
 
+    }
+    private func setupMovieData() {
+        if let movieDetails  = router?.dataStore.movieDetail {
+            self.movieDetails = movieDetails
+        }
     }
     
     func setupUI() {

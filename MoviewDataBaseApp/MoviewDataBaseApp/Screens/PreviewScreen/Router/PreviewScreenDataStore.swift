@@ -6,9 +6,9 @@
 //
 
 protocol IPreviewScreenDataStore {
-    var movieDetail: MovieDetails? { get set }
+    var movieDetail: [MovieDetails]? { get set }
 }
 
 final class DefaultPreviewScreenDataStore: IPreviewScreenDataStore {
-    var movieDetail: MovieDetails?
+    var movieDetail: [MovieDetails]?
 }
