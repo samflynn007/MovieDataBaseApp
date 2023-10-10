@@ -5,7 +5,6 @@
 //  Created by Venky on 06/10/23.
 //
 
-import UIKit
 
 import UIKit
 
@@ -13,12 +12,14 @@ protocol IMoviesViewControllerInput: AnyObject {
     func displayMovieList(movieDetails: [MovieDetails])
     func displaySectionList(sectionMoview: [Section<Any>])
     func displaySearch(filteredMovies: [MovieDetails])
+    func getSectionWiseData(movieDetails: [MovieDetails])
+  
 }
 
 protocol IMoviesViewControllerOutput {
     func fetchMoviesData()
     func fetchSectionData()
-    func fetchSearchData(_ movies: [MovieDetails], query: String)
+    func getSectionWiseData(secInd: IndexPath, data: [Section<Any>],movies: [MovieDetails])
 }
 
 
@@ -58,6 +59,8 @@ final class MoviesViewController: UIViewController {
         navigationSetUp()
         
     }
+    // MARK: - Custom Methods
+    
     func navigationSetUp() {
         let navigationBarAppearance = UINavigationBarAppearance()
         navigationBarAppearance.configureWithOpaqueBackground()
@@ -85,6 +88,7 @@ final class MoviesViewController: UIViewController {
 }
 
 extension MoviesViewController: IMoviesViewControllerInput {
+    
     func displaySearch(filteredMovies: [MovieDetails]) {
         self.filteredMovies = filteredMovies
     }
@@ -100,8 +104,13 @@ extension MoviesViewController: IMoviesViewControllerInput {
     func displayMovieList(movieDetails: [MovieDetails]) {
        movies = movieDetails
     }
+    func getSectionWiseData(movieDetails: [MovieDetails]) {
+        filteredMovies = movieDetails
+    }
     
 }
+ // MARK: - TableView Methods
+
 extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -112,36 +121,24 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
         return  moviesSections[section].collapse ? 0: moviesSections[section].listData.count
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 70
+        return 80
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        switch indexPath.section {
-        case 4:
-            let cell = tableView.dequeueReusableCell(withIdentifier: AllMoviesTableViewCell.identifier) as! AllMoviesTableViewCell
-            cell.configure(movieDetail: (moviesSections[indexPath.section].listData[indexPath.row] as? MovieDetails)!)
-            return cell
-        default :
-            guard  let cell = tableView.dequeueReusableCell(withIdentifier: Home.cellConstant) else { return UITableViewCell() }
-            cell.textLabel?.text = moviesSections[indexPath.section].listData[indexPath.row] as? String
-            return cell
-            
-        }
-        
-        
+        guard  let cell = tableView.dequeueReusableCell(withIdentifier: Home.cellConstant) else { return UITableViewCell() }
+        cell.textLabel?.text = moviesSections[indexPath.section].listData[indexPath.row] as? String
+        return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? CollapsibleTableViewHeader ?? CollapsibleTableViewHeader(reuseIdentifier: "header")
-            header.titleLabel.text = moviesSections[section].title
-        
-            header.arrowLabel.text = ">"
-            header.setCollapsed(collapsed: moviesSections[section].collapse)
-            header.section = section
-            header.delegate = self
+        header.titleLabel.text = moviesSections[section].title
+        header.arrowLabel.text = ">"
+        header.setCollapsed(collapsed: moviesSections[section].collapse)
+        header.section = section
+        header.delegate = self
         
         return header
     }
@@ -152,31 +149,16 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 4 {
-            router?.navigateToMovieDetailScreen(with: (moviesSections[indexPath.section].listData[indexPath.row] as? MovieDetails)!)
-        } else if let filteredMovie = getSectionWiseData(secInd: indexPath.section, compareValue: moviesSections[indexPath.section].listData[indexPath.row] as! String) {
-            router?.navigateToPreViewController(with: filteredMovie)
-            
-        }
+        
+        output?.getSectionWiseData(secInd: indexPath, data: moviesSections, movies: movies)
+        router?.navigateToPreViewController(with: filteredMovies)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func getSectionWiseData(secInd: Int, compareValue: String) -> [MovieDetails]? {
-        switch secInd {
-        case 0:
-            return movies.filter({$0.Year.components(separatedBy: Home.hyphen).contains(compareValue)})
-        case 1:
-            return movies.filter({$0.Genre.components(separatedBy: Home.comma).contains(compareValue)})
-        case 2:
-            return movies.filter({$0.Director.components(separatedBy: Home.comma).contains(compareValue)}).sorted()
-        case 3:
-            return movies.filter({$0.Actors.components(separatedBy: Home.comma).contains(compareValue)})
-        default:
-            return nil
-        }
-    }
+   
 }
-    
+ 
+// MARK: HANDLES EXPAND / Collapse
   
 extension MoviesViewController: CollapsibleTableViewHeaderDelegate {
     
@@ -185,7 +167,13 @@ extension MoviesViewController: CollapsibleTableViewHeaderDelegate {
         // Toggle collapse
         moviesSections[section].collapse = collapsed
         header.setCollapsed(collapsed: collapsed)
-        
+       
+        if section.hashValue == MovieSections.allMovies.hashValue {
+            print(MovieSections.allMovies.hashValue)
+            moviesSections[section].collapse = true
+            router?.navigateToPreViewController(with: movies)
+            
+        }
         // Reload the whole section
         tableView.reloadSections([section], with: .automatic)
     }
@@ -197,6 +185,7 @@ extension MoviesViewController: CollapsibleTableViewHeaderDelegate {
     
     
 }
+// MARK: Search Delegate Methods
 
 extension MoviesViewController: UISearchResultsUpdating, SearchResultsViewControllerDelegate {
     
@@ -219,6 +208,7 @@ extension MoviesViewController: UISearchResultsUpdating, SearchResultsViewContro
     }
     func searchResultsViewControllerDidTapItem(_ movieModel: MovieDetails) {
         router?.navigateToMovieDetailScreen(with: movieModel)
+        
     }
     
 }

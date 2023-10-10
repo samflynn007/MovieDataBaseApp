@@ -39,38 +39,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5ED1ECD4-9558-484F-942D-BD134266E9C3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MoviewDataBaseApp/Screens/Home/View/MoviesViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
-            landmarkName = "callHeader(index:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "34FD1E8C-711A-4118-AD5B-504AE82A0E04"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MoviewDataBaseApp/Screens/Home/View/MoviesDetailViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "init(nibName:bundle:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "FF9C55B1-3D82-4A6B-8BF1-1CE32D76A9A7"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -81,6 +49,116 @@
             startingLineNumber = "90"
             endingLineNumber = "90"
             landmarkName = "setupMovieData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8219E38F-D980-4D20-8983-5448FDFAD7DC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoviewDataBaseApp/Screens/PreviewScreen/View/PreviewViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "listPopupViewController()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8219E38F-D980-4D20-8983-5448FDFAD7DC - 756f96bc2482f786"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoviewDataBaseApp.PreviewViewController.listPopupViewController() -&gt; ()"
+                  moduleName = "MoviewDataBaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/venky/Documents/Cricbuz/MoviewDataBaseApp/MoviewDataBaseApp/Screens/PreviewScreen/View/PreviewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "8219E38F-D980-4D20-8983-5448FDFAD7DC - 42803a6d4ade8d1d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.UIAlertAction) -&gt; () in MoviewDataBaseApp.PreviewViewController.listPopupViewController() -&gt; ()"
+                  moduleName = "MoviewDataBaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/venky/Documents/Cricbuz/MoviewDataBaseApp/MoviewDataBaseApp/Screens/PreviewScreen/View/PreviewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "8219E38F-D980-4D20-8983-5448FDFAD7DC - 42803a6d4ade8d5f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.UIAlertAction) -&gt; () in MoviewDataBaseApp.PreviewViewController.listPopupViewController() -&gt; ()"
+                  moduleName = "MoviewDataBaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/venky/Documents/Cricbuz/MoviewDataBaseApp/MoviewDataBaseApp/Screens/PreviewScreen/View/PreviewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "8219E38F-D980-4D20-8983-5448FDFAD7DC - cd5f71c54ced4203"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MoviewDataBaseApp.MovieDetails, MoviewDataBaseApp.MovieDetails) -&gt; Swift.Bool in closure #1 (__C.UIAlertAction) -&gt; () in MoviewDataBaseApp.PreviewViewController.listPopupViewController() -&gt; ()"
+                  moduleName = "MoviewDataBaseApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/venky/Documents/Cricbuz/MoviewDataBaseApp/MoviewDataBaseApp/Screens/PreviewScreen/View/PreviewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D0184E8B-149F-457D-A0C3-844C908F3982"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoviewDataBaseApp/Screens/PreviewScreen/View/PreviewViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "listPopupViewController()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7921C937-7A2F-47D6-9313-1CB6BB160ECE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoviewDataBaseApp/Screens/PreviewScreen/View/PreviewViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

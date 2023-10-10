@@ -14,10 +14,10 @@ protocol CollapsibleTableViewHeaderDelegate {
 class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
     var delegate: CollapsibleTableViewHeaderDelegate?
     var section: Int = 0
-     let titleLabel = UILabel()
-     let arrowLabel = UILabel()
+    let titleLabel = UILabel()
+    let arrowLabel = UILabel()
     
-//    l
+    
     let horizontalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -34,7 +34,7 @@ class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
     override func layoutSubviews() {
         super.layoutSubviews()
         constrainSetUp()
-       
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -42,10 +42,11 @@ class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
     }
     
     private func headerViewSetUp() {
+        titleLabel.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
         contentView.backgroundColor = UIColor(named: Colors.primeColor)
         contentView.addSubview(titleLabel)
         contentView.addSubview(arrowLabel)
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(CollapsibleTableViewHeader.tapHeader)))
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapHeader)))
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         arrowLabel.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -53,21 +54,21 @@ class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
         
         horizontalStackView.addArrangedSubview(titleLabel)
         horizontalStackView.addArrangedSubview(arrowLabel)
-
+        
         // Add the stack view to your view hierarchy
         contentView.addSubview(horizontalStackView)
         
         NSLayoutConstraint.activate([
             // Constrain the stack view to the edges of its superview (or adjust the superview accordingly)
-            horizontalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            horizontalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            horizontalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: CGFloat(ConstraintConstants.padding)),
+            horizontalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -CGFloat(ConstraintConstants.padding)),
             horizontalStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            horizontalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            horizontalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
-
+        
     }
     
-@objc func tapHeader(gestureRecognizer: UITapGestureRecognizer) {
+    @objc func tapHeader(gestureRecognizer: UITapGestureRecognizer) {
         guard let cell = gestureRecognizer.view as? CollapsibleTableViewHeader else {
             return
         }

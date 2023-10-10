@@ -9,6 +9,7 @@ import UIKit
 
 class RatingViewTableViewCell: UITableViewCell {
     static let identifier = "RatingViewTableViewCell"
+    
     let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -53,9 +54,9 @@ class RatingViewTableViewCell: UITableViewCell {
         
         contentView.addSubview(stackView)
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: CGFloat(ConstraintConstants.padding)),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: CGFloat(ConstraintConstants.padding)),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30)
         ])
     }

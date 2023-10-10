@@ -10,7 +10,7 @@ protocol IPreviewScreenViewRoutingLogic {
     func navigateToMovieDetailScreen(with data: MovieDetails)
     
 }
-
+// MARK: Data Handler Protocol
 protocol IPreviewScreenDataPassing {
     var dataStore: IPreviewScreenDataStore { get set }
 }
@@ -25,6 +25,8 @@ final class PreviewScreenViewRouter: IPreviewScreenViewRoutingLogic, IPreviewScr
         self.dataStore = dataStore
     }
 }
+
+// MARK: Navigation Methods
 
 extension PreviewScreenViewRouter {
     

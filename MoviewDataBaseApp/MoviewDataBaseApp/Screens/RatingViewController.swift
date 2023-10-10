@@ -45,7 +45,6 @@ class RatingViewController: UIViewController {
        
        private lazy var starsContainer: UIStackView = {
            let stackView = UIStackView()
-           
            stackView.axis = .horizontal
            stackView.distribution = .fillEqually
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didSelectRate))

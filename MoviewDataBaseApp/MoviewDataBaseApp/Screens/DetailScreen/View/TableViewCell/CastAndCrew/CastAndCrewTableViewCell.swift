@@ -31,6 +31,5 @@ class CastAndCrewTableViewCell: UITableViewCell {
     func configure(_ movieDetail: MovieDetails) {
         self.castLabel.text = "Actors: \(movieDetail.Actors)"
         self.releasedDate.text = "Released Date: \(movieDetail.Released ?? "")"
-        print(movieDetail.Ratings?.count)
     }
 }

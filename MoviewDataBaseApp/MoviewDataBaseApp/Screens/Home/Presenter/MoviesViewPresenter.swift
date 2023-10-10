@@ -11,13 +11,14 @@ protocol IMoviesViewPresenterInput {
     func presentMoviesData(movieResponse: [MovieDetails])
     func updateAllSection(_ movieDetails: [MovieDetails])
     func presentSearchData(_ movies: [MovieDetails])
+    func getSectionWiseData(movieDetails: [MovieDetails])
 }
 
 typealias IMoviesViewPresenterOutput = IMoviesViewControllerInput
 
 final class MoviesViewPresenter {
     // MARK: Properties
-    private weak var output: IMoviesViewPresenterOutput?
+    private  var output: IMoviesViewPresenterOutput?
     let movieDetails = [MovieDetails]()
     var listWithSection = [Section<Any>]()
     var filterdMovieList = [MovieDetails]()
@@ -29,6 +30,8 @@ final class MoviesViewPresenter {
 }
 
 extension MoviesViewPresenter: IMoviesViewPresenterInput {
+    
+    
     func presentSearchData(_ movies: [MovieDetails]) {
         output?.displaySearch(filteredMovies: movies)
     }
@@ -45,7 +48,7 @@ extension MoviesViewPresenter: IMoviesViewPresenterInput {
         let actors =  Set(movieDetails.map { $0.Actors })
         let directors = Set(movieDetails.map { $0.Director })
         let allMovies = movieDetails
-     
+        
         let genresArray = Array(genreArray).sorted()
         let splitGenres = genresArray.flatMap { $0.components(separatedBy: Home.comma) }
         
@@ -54,7 +57,7 @@ extension MoviesViewPresenter: IMoviesViewPresenterInput {
         
         let directorsArray = Array(directors).sorted()
         let splitDirectors = directorsArray.flatMap { $0.components(separatedBy: Home.comma) }
-
+        
         var movieDatabaseList = [Section<Any>]()
         movieDatabaseList.append(Section(title:  Home.year, collapse: true, listData: yearArray.sorted()))
         movieDatabaseList.append(Section(title: Home.genre, collapse: true, listData: splitGenres))
@@ -62,6 +65,10 @@ extension MoviesViewPresenter: IMoviesViewPresenterInput {
         movieDatabaseList.append(Section(title: Home.actors, collapse: true, listData: splitActors))
         movieDatabaseList.append(Section(title: Home.allMovies, collapse: true, listData: allMovies))
         output?.displaySectionList(sectionMoview: movieDatabaseList)
+    }
+    
+    func getSectionWiseData(movieDetails: [MovieDetails]) {
+        output?.getSectionWiseData(movieDetails: movieDetails)
     }
 }
 
