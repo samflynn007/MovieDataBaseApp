@@ -60,13 +60,4 @@ I have written test cases for the Home View Controller to ensure its functionali
 
 Venkatesh Nellore.
 
-## License
-
-Specify the project's license information if applicable.
-
-## Acknowledgments
-
-Mention any libraries, frameworks, or resources you used in your project.
-
-
 
