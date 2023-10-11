@@ -1,6 +1,6 @@
-# Project Name
+# Movie Database App
 
-Project Name: Movie Database App
+
 
 Description:
 The Movie Database App is a mobile application developed in Xcode that allows users to explore and discover movies by various categories such as year, genre, directors, actors, and all movies. The app provides an intuitive user interface for browsing and viewing movie details.
