@@ -138,6 +138,7 @@
 		25CE6B5E2AD575C100784E88 /* MoviePreviewPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoviePreviewPresenterTest.swift; path = ../../../../MoviePreviewPresenterTest.swift; sourceTree = "<group>"; };
 		25CE6B602AD575D700784E88 /* MoviePreviewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoviePreviewControllerTest.swift; path = ../../../../MoviePreviewControllerTest.swift; sourceTree = "<group>"; };
 		25CE6B622AD5B0BF00784E88 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		25CE6B642AD5BD8200784E88 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		25EE1E2E2AD2B9D300C1D560 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		25FE51622AD25789008153DA /* PreviewScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewScreenRouter.swift; sourceTree = "<group>"; };
 		25FE51652AD257A0008153DA /* PreviewScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewScreenPresenter.swift; sourceTree = "<group>"; };
@@ -299,6 +300,7 @@
 		2560B0292AD03E6E00540D77 = {
 			isa = PBXGroup;
 			children = (
+				25CE6B642AD5BD8200784E88 /* README.md */,
 				2560B0342AD03E6E00540D77 /* MoviewDataBaseApp */,
 				25CE6B452AD574B000784E88 /* MoviewDataBaseAppTests */,
 				2560B0332AD03E6E00540D77 /* Products */,
