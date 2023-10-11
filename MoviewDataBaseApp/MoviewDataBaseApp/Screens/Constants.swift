@@ -19,6 +19,7 @@ enum Home {
     static let directors      = "Directors"
     static let actors         = "Actors"
     static let allMovies      = "AllMovies"
+    static let header         = "header"
     
     
 }

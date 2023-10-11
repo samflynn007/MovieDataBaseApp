@@ -81,14 +81,14 @@ extension MoviesViewInteractor: IMoviesViewInteractorInput {
         
         guard let compareValue = data[secInd.section].listData[secInd.row] as? String else { return }
         
-        switch secInd.section {
-        case 0:
+        switch secInd.section.hashValue {
+        case MovieSections.year.hashValue:
             output?.getSectionWiseData(movieDetails: movies.filter({$0.Year.components(separatedBy: Home.hyphen).contains(compareValue)}))
-        case 1:
+        case MovieSections.genre.hashValue:
             output?.getSectionWiseData(movieDetails: movies.filter({$0.Genre.components(separatedBy: Home.comma).contains(compareValue)}))
-        case 2:
+        case MovieSections.directors.hashValue:
             output?.getSectionWiseData(movieDetails: movies.filter({$0.Director.components(separatedBy: Home.comma).contains(compareValue)}).sorted())
-        case 3:
+        case MovieSections.actors.hashValue:
             output?.getSectionWiseData(movieDetails: movies.filter({$0.Actors.components(separatedBy: Home.comma).contains(compareValue)}))
         default:
             break
@@ -99,7 +99,3 @@ extension MoviesViewInteractor: IMoviesViewInteractorInput {
 }
 
 
-// test cases
-// protocol for type
-// comments brief
-// need to show all movies 

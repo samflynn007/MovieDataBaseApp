@@ -133,7 +133,7 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? CollapsibleTableViewHeader ?? CollapsibleTableViewHeader(reuseIdentifier: "header")
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: Home.header) as? CollapsibleTableViewHeader ?? CollapsibleTableViewHeader(reuseIdentifier: Home.header)
         header.titleLabel.text = moviesSections[section].title
         header.arrowLabel.text = ">"
         header.setCollapsed(collapsed: moviesSections[section].collapse)
