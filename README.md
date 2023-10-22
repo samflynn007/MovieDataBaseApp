@@ -1,7 +1,7 @@
 # Movie Database App
 
 <img src="https://i.imgur.com/Y81Xp41.mp4" width="200" height="400">
-<img src="https://i.imgur.com/x1tyeS3.png" width="200" height="400">   <img src="https://i.imgur.com/UlCNOI8.png" width="200" height="400">  <img src="https://i.imgur.com/hgNVSzl.png" width="200" height="400">
+<img src="https://i.imgur.com/x1tyeS3.png" width="200" height="400"><img src="https://i.imgur.com/UlCNOI8.png" width="200" height="400"><img src="https://i.imgur.com/hgNVSzl.png" width="200" height="400">
 
 
 
